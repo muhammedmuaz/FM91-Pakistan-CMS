@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2022 at 02:45 PM
+-- Generation Time: Jan 18, 2023 at 06:45 PM
 -- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- PHP Version: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -251,6 +251,9 @@ CREATE TABLE `local_ads` (
 --
 
 INSERT INTO `local_ads` (`id`, `company_name`, `url`, `cover`, `clicks`, `created_at`, `updated_at`) VALUES
+(1, 'Honda', 'Testing', 'Fb-1_1670003845.png', 0, '2022-12-02 12:57:25', '2022-12-02 12:57:25'),
+(3, 'Testing Add2', 'Testing', 'public/Adds/Fb4snzRWQAAg69j_1670005161.png', 0, '2022-12-02 13:19:21', '2022-12-02 13:19:21'),
+(4, 'Testing Add3', 'ffefe', 'http://127.0.0.1:8000public/AddsFb-2_1670005490.png', 0, '2022-12-02 13:24:50', '2022-12-02 13:24:50'),
 (7, 'Honda', 'https://fm91.com.pk/', 'http://10.0.2.2:8000/storage/Adds/Rjsophie-radio_1670102813.png', 0, '2022-12-04 05:26:53', '2022-12-04 05:26:53');
 
 -- --------------------------------------------------------
@@ -285,8 +288,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (13, '2022_11_26_110218_create_playlistheadings_table', 1),
 (14, '2022_11_27_215309_create_events_table', 2),
 (15, '2022_12_02_170807_create_local_ads_table', 3),
-(16, '2022_12_02_190239_create_users_table', 4),
-(17, '2022_12_05_105015_create_podcastcovers_table', 5);
+(16, '2022_12_02_190239_create_users_table', 4);
 
 -- --------------------------------------------------------
 
@@ -308,6 +310,9 @@ CREATE TABLE `palylistnames` (
 --
 
 INSERT INTO `palylistnames` (`id`, `playlistname`, `total`, `heading`, `created_at`, `updated_at`) VALUES
+(1, 'Baazi', 0, 1, '2022-11-27 23:35:30', '2022-11-27 23:35:30'),
+(2, 'Baazi 2', 0, 1, '2022-11-28 08:22:08', '2022-11-28 08:22:08'),
+(3, 'Biggest Baazi', 0, 2, '2022-11-28 08:22:21', '2022-11-28 08:22:21'),
 (4, 'Biggest Hits', 0, 1, '2022-12-04 21:51:07', '2022-12-04 21:51:07'),
 (5, 'POP', 0, 1, '2022-12-04 21:51:25', '2022-12-04 21:51:25'),
 (6, 'Coke Studio Season 15', 0, 1, '2022-12-04 21:51:46', '2022-12-04 21:51:46');
@@ -380,7 +385,6 @@ INSERT INTO `playlistheadings` (`id`, `Name`, `created_at`, `updated_at`) VALUES
 CREATE TABLE `playlistsongs` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `song_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `song_desc` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `song_pic` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `song_audio` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `playlist_id` int(11) NOT NULL,
@@ -392,14 +396,10 @@ CREATE TABLE `playlistsongs` (
 -- Dumping data for table `playlistsongs`
 --
 
-INSERT INTO `playlistsongs` (`id`, `song_name`, `song_desc`, `song_pic`, `song_audio`, `playlist_id`, `created_at`, `updated_at`) VALUES
-(10, 'Baazi', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 'http://10.0.2.2:8000/storage/Adds/Rjsophie-radio_1670102813.png', 'y2mate.com - Chal Chaiya Chaiya  4K Video Song  Dil Se 1998  Sukhwinder Singh  Sapna Awasthi  Shahrukh Khan (1)_1670162061.mp3', 4, '2022-12-04 21:54:21', '2022-12-04 21:54:21'),
-(11, 'Dino', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 'http://10.0.2.2:8000/storage/playlist/Pictures/images (1)_1670162163.jfif', 'Y2Mate.is - Mareez-e-Ishq (Lyrics) - Arijit Singh 🎵-j8a0R_EpqbM-64k-1644876254125_1670162163.mp3', 4, '2022-12-04 21:56:03', '2022-12-04 21:56:03'),
-(12, 'Take It', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 'http://10.0.2.2:8000/storage/playlist/Pictures/images (2)_1670162279.jfif', 'Y2Mate.is - Mareez-e-Ishq (Lyrics) - Arijit Singh 🎵-j8a0R_EpqbM-64k-1644876254125_1670162279.mp3', 4, '2022-12-04 21:57:59', '2022-12-04 21:57:59'),
-(13, 'Red Heart', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 'http://10.0.2.2:8000/storage/playlist/Pictures/rap-cd-album-mixtape-album-cover-template-design-0070818b2986d3da068b0c941be4b9f4_screen_1670162331.jpg', 'Y2Mate.is - Mareez-e-Ishq (Lyrics) - Arijit Singh 🎵-j8a0R_EpqbM-64k-1644876254125_1670162331.mp3', 4, '2022-12-04 21:58:51', '2022-12-04 21:58:51'),
-(14, 'POP 1', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 'http://10.0.2.2:8000/storage/playlist/Pictures/attachment_99736617_1670162536.jfif', 'Y2Mate.is - Mareez-e-Ishq (Lyrics) - Arijit Singh 🎵-j8a0R_EpqbM-64k-1644876254125_1670162536.mp3', 5, '2022-12-04 22:02:16', '2022-12-04 22:02:16'),
-(15, 'POP 3', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 'http://10.0.2.2:8000/storage/playlist/Pictures/unnamed_1670165798.png', 'y2mate.com - Chal Chaiya Chaiya  4K Video Song  Dil Se 1998  Sukhwinder Singh  Sapna Awasthi  Shahrukh Khan_1670165798.mp3', 6, '2022-12-04 22:56:38', '2022-12-04 22:56:38'),
-(16, 'POP 4', 'Lorem IPSUM', 'http://10.0.2.2:8000/storage/playlist/Pictures/images (2)_1670170010.jfif', 'Y2Mate.is - Mareez-e-Ishq (Lyrics) - Arijit Singh 🎵-j8a0R_EpqbM-64k-1644876254125_1670170010.mp3', 6, '2022-12-05 00:06:50', '2022-12-05 00:06:50');
+INSERT INTO `playlistsongs` (`id`, `song_name`, `song_pic`, `song_audio`, `playlist_id`, `created_at`, `updated_at`) VALUES
+(2, 'NOMO FOMO KOMO', 'FZ8_GLjXEAEX-YD_1669563977.jpg', 'y2mate.com - Chal Chaiya Chaiya  4K Video Song  Dil Se 1998  Sukhwinder Singh  Sapna Awasthi  Shahrukh Khan_1669563977.mp3', 1, '2022-11-27 23:46:17', '2022-11-29 18:40:30'),
+(4, 'NOMO FOMO', 'FZ8_GLjXEAEX-YD_1669563977.jpg', 'y2mate.com - Chal Chaiya Chaiya  4K Video Song  Dil Se 1998  Sukhwinder Singh  Sapna Awasthi  Shahrukh Khan_1669563977.mp3', 1, NULL, NULL),
+(5, 'NOMO FOMO', 'FZ8_GLjXEAEX-YD_1669563977.jpg', 'y2mate.com - Chal Chaiya Chaiya  4K Video Song  Dil Se 1998  Sukhwinder Singh  Sapna Awasthi  Shahrukh Khan_1669563977.mp3', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -553,12 +553,6 @@ ALTER TABLE `playlistsongs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `podcastcovers`
---
-ALTER TABLE `podcastcovers`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -633,7 +627,7 @@ ALTER TABLE `local_ads`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `palylistnames`
@@ -657,13 +651,7 @@ ALTER TABLE `playlistheadings`
 -- AUTO_INCREMENT for table `playlistsongs`
 --
 ALTER TABLE `playlistsongs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
--- AUTO_INCREMENT for table `podcastcovers`
---
-ALTER TABLE `podcastcovers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `users`
